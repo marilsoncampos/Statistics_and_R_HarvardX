@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "dat <- read.csv(filename)\ndat <- na.omit(dat)\n\nlibrary(dplyr)\nlibrary(rafalib)\nx <- filter(dat, Sex==\"F\" & Diet==\"chow\") %>% select(Bodyweight) %>% unlist\ny <- filter(dat, Sex==\"F\" & Diet==\"hf\") %>% select(Bodyweight) %>% unlist\n\npmean_x <- mean(x)\npmean_y <- mean(y)\n\npopsd(x)\npopsd(y)\n\nset.seed(1)\nX <- sample(x, 25)\nsmean_X <- mean( X )\n\nset.seed(1)\nY <- sample(y, 25)\nsmean_Y <- mean( Y )\n\ndiff_popMean <- pmean_y - pmean_x\ndiff_sampleMean <- smean_Y - smean_X\n\ndiff_pop_sample_mean <- abs(diff_popMean - diff_sampleMean)\ndiff_pop_sample_mean\n",
+    "created" : 1483452955465.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3176421149",
+    "id" : "5FDEFE5B",
+    "lastKnownWriteTime" : 1483454726,
+    "last_content_update" : 1483454726746,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/week2_population_samples_estimates/pop_sam_est.R",
+    "project_path" : "pop_sam_est.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

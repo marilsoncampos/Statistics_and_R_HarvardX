@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\nlibrary(gapminder)\n\na <- gapminder\n\ndata1952 <- filter(gapminder, year==1952) %>% select(lifeExp) %>% unlist\n\nprop <- function(q) {\n  mean(data1952<=q)\n}\n\nqs <- seq(from=min(data1952), to=max(data1952), length=20)\n\nprops <- sapply(qs, prop)\n\nplot(qs, props, main=\"P-distribution\")\n",
+    "created" : 1483364011447.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3283438719",
+    "id" : "ED6C579E",
+    "lastKnownWriteTime" : 1483364889,
+    "last_content_update" : 1483364889125,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/week2_pdistribution/probability_distribution.R",
+    "project_path" : "probability_distribution.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

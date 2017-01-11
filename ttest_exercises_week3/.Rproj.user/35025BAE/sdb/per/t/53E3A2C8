@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\nlibrary(rafalib)\n\nbabies <- read.table(\"babies.txt\", header = TRUE)\n\nbwt.nonsmoke <- filter(babies, smoke==0) %>% select(bwt) %>% unlist\nbwt.smoke <- filter(babies, smoke==1) %>% select(bwt) %>% unlist\n\ndiff <- mean(bwt.nonsmoke) - mean(bwt.smoke)\n\nset.seed(1)\ndat.ns <- sample(bwt.nonsmoke, 25)\ndat.s <- sample(bwt.smoke, 25)\n\nX.ns <- mean(dat.ns)\nvar.ns <- var(dat.ns)\n\nX.s <- mean(dat.s)\nvar.s <- var(dat.s)\n\nse_diff <- sqrt(\n  var.ns/25 \n  + var.s/25\n)\ntval <- (X.ns - X.s)/se_diff\ntval  # T statistic\n\n# probability if T statistic is having\n# larger value. Multiply by 2 as it is two sided test\nprob_t <- 2 * (1 - pnorm(abs(tval)))\n# or prob_t <- 2 * pnorm(-abs(tval))\n\nqnorm(0.995) * se_diff\n",
+    "created" : 1483785816097.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2022919302",
+    "id" : "53E3A2C8",
+    "lastKnownWriteTime" : 1483795749,
+    "last_content_update" : 1483795749445,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/ttest_exercises_week3/ttest_exercises.R",
+    "project_path" : "ttest_exercises.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Exercise 1\ndat <- read.csv(filename)\nset.seed(1)\n\nsides <- 6\nn <- 100\np <- 1/sides\np_var <- p*(1-p)/n\nzs <- replicate(10000, {\n                x <- sample(1:sides, n, replace = TRUE)\n                (mean(x==sides) - p)/sqrt(p_var)\n                })\n\nqqnorm(zs)\nabline(0,1) # We see that it is well approximated (CLT approved)\nmean(abs(zs)>2)\n\n# Exercise 3\nlibrary(dplyr)\nX <- filter(dat, Diet==\"chow\") %>% select(Bodyweight) %>% unlist\nY <- filter(dat, Diet==\"hf\") %>% select(Bodyweight) %>% unlist\nmean(X)\nsd(X)\n\n# Exercise 7\ntwo_grams_off <- 2 * ( 1 - pnorm(2/sd(X) * sqrt(12)) )\ntwo_grams_off\n\n# Exercise 8\nse_X_diff_Y <- sqrt(\n  var(Y)/12 +  var(X)/12\n)\nse_X_diff_Y\n\n# Exercise 9\ndiff_in_mean_XY <- mean(Y) - mean(X)\ntstatXY <- diff_in_mean_XY/se_X_diff_Y\ntstatXY\n# or\nt.test(Y, X)\n\n# Exercise 11\n2*(1-pnorm(2.055174)) # value taken from exercises 9\n\n# Exercise 12\nt.test(X,Y)$p.value\n",
+    "created" : 1483748489476.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1340484287",
+    "id" : "6BA4157E",
+    "lastKnownWriteTime" : 1483753573,
+    "last_content_update" : 1483753573229,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/clt_t_distribution_week2_exercises/clt_t_distribution.R",
+    "project_path" : "clt_t_distribution.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

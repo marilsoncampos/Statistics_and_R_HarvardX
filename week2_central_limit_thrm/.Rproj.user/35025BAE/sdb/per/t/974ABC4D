@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\nlibrary(rafalib)\ndat <- na.omit(read.csv(filename))\n\nonesd <- pnorm(1) - pnorm(-1)\ntwosd <- pnorm(2) - pnorm(-2)\nthreesd <- pnorm(3) - pnorm(-3)\n\nmypar(2,2)\ny <- filter(dat, Sex==\"M\" & Diet==\"chow\") %>% select(Bodyweight) %>% unlist\nz <- ( y - mean(y) ) / popsd(y)\nqqnorm(z);abline(0,1)\n\ny <- filter(dat, Sex==\"F\" & Diet==\"chow\") %>% select(Bodyweight) %>% unlist\nz <- ( y - mean(y) ) / popsd(y)\nqqnorm(z);abline(0,1)\n\ny <- filter(dat, Sex==\"M\" & Diet==\"hf\") %>% select(Bodyweight) %>% unlist\nz <- ( y - mean(y) ) / popsd(y)\nqqnorm(z);abline(0,1)\n\ny <- filter(dat, Sex==\"F\" & Diet==\"hf\") %>% select(Bodyweight) %>% unlist\nz <- ( y - mean(y) ) / popsd(y)\nqqnorm(z);abline(0,1)\n\nset.seed(1)\nchowDiet_males <- filter(dat, Sex==\"M\" & Diet==\"chow\") %>% select(Bodyweight) %>% unlist\navgs <- replicate(10000, mean(sample(chowDiet_males, 25)))\nmypar(1,2)\nhist(avgs)\nqqnorm(avgs)\nqqline(avgs)\nmean(avgs)\nsd(avgs)\n",
+    "created" : 1483625391099.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "346867844",
+    "id" : "974ABC4D",
+    "lastKnownWriteTime" : 1483658079,
+    "last_content_update" : 1483658079829,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/week2_central_limit_thrm/clt.R",
+    "project_path" : "clt.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

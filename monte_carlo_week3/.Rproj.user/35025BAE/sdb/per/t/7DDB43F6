@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\nlibrary(rafalib)\n\nd <- read.csv(\"assoctest.csv\")\n\ntab <- table(d)\nchisq.test(tab)\nfisher.test(tab)\n",
+    "created" : 1483914255721.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4198815786",
+    "id" : "7DDB43F6",
+    "lastKnownWriteTime" : 1483914774,
+    "last_content_update" : 1483914774216,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/monte_carlo_week3/association_test.R",
+    "project_path" : "association_test.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

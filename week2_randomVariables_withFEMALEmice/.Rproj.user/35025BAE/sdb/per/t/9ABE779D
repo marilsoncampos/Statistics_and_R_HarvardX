@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "##Playing with population samples and finding the null hypothesis iterating\n##the mean search 10K times. Read code below\nlibrary(dplyr)\nlibrary(downloader)\nurl <- \"https://raw.githubusercontent.com/genomicsclass/dagdata/master/inst/extdata/femaleControlsPopulation.csv\"\nfilename <- basename(url)\nif (!file.exists(filename)) download(url, destfile=filename)\n\n## -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\n\npopulation <- read.csv(\"femaleControlsPopulation.csv\")\npopulation <- unlist(population)\n\ncontrol <- filter(dat,Diet==\"chow\") %>% select(Bodyweight) %>% unlist\ntreatment <- filter(dat,Diet==\"hf\") %>% select(Bodyweight) %>% unlist\nobsdiff <- mean(treatment) - mean(control)\n\nn <- 10000\nnull <- vector(\"numeric\",n)\n\nfor (i in 1:n) {\n      control <- sample(population, 12)\n      treatment <- sample(population, 12)\n      null[i] <- mean(treatment) - mean(control)\n}\nprint( mean( abs(null) >= obsdiff ) )\n\nmax(null)\nhist(null)\n\n## -- - -- - -- - -- - -- - -- - -- - --\n## Exercise No.2 and No.3 (HW)\n\nset.seed(1)\nm <- 1000\nnull_vctr <- vector(\"numeric\", m)\nfor (i in 1:m) {\n  m[i] <- mean( sample(population, 50) )\n}\nhist(m)\nprint( mean( abs(m - mean(population)) > 1) )\n",
+    "created" : 1483313433135.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3876173173",
+    "id" : "9ABE779D",
+    "lastKnownWriteTime" : 1483320797,
+    "last_content_update" : 1483320797827,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/week2_randomVariables_withFEMALEmice/plotResults.R",
+    "project_path" : "plotResults.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

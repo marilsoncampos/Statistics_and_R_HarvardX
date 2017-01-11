@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\nlibrary(rafalib)\n\nbabies <- read.table(\"babies.txt\", header=TRUE)\n\nbwt.nonsmoke <- filter(babies, smoke==0) %>% select(bwt) %>% unlist \nbwt.smoke <- filter(babies, smoke==1) %>% select(bwt) %>% unlist\n\nmean(bwt.nonsmoke) - mean(bwt.smoke)\npopsd(bwt.nonsmoke)\npopsd(bwt.smoke)\n\nset.seed(1)\nN <- 5\ndat.ns <- sample(bwt.nonsmoke, N)\ndat.s <- sample(bwt.smoke, N)\n\nt.test(dat.ns, dat.s)\n\nvar_both <- sqrt(\n  var(dat.ns)/N + var(dat.s)/N\n)\nqt(0.995, 2*N-2)*var_both\n",
+    "created" : 1483800705530.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1112823296",
+    "id" : "CA8B2466",
+    "lastKnownWriteTime" : 3419185846680775028,
+    "last_content_update" : 1483801676300,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

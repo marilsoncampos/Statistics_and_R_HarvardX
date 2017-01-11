@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\n\nx <- unlist( read.csv(\"femaleControlsPopulation.csv\") )\n\nset.seed(1)\nn <- 1000\n\naverage_five <- vector(\"numeric\", n)\naverage_fifty <- vector(\"numeric\", n)\n\nfor (i in 1:n) {\n    average_five[i] <- mean( sample(x, 5) )\n    average_fifty[i] <- mean( sample(x, 50) )\n}\n\nprop = function(q) {\n    mean(average_fifty<=q)\n}\nb <- prop(25)\na <- prop(23)\n\ndiff <- pnorm(25, mean(average_fifty), sd(average_fifty)) - pnorm(23, mean(average_fifty), sd(average_fifty))\ndiff\n",
+    "created" : 1483448921237.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2319960061",
+    "id" : "317DA6E4",
+    "lastKnownWriteTime" : 1483451442,
+    "last_content_update" : 1483451442559,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/week2_normal_distr/norm_distrib.R",
+    "project_path" : "norm_distrib.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

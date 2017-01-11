@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\n\ncomparable <- read.csv(\"msleep_ggplot2.csv\")\nclass(comparable)\n\nprimates_only <- filter(comparable, order==\"Primates\") %>% select(sleep_total)\n\nplot(primates_only)\n",
+    "created" : 1483278817590.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4201735715",
+    "id" : "9BE399F5",
+    "lastKnownWriteTime" : 1483295663,
+    "last_content_update" : 1483295663939,
+    "path" : "C:/Users/User/Desktop/winter/harvard statistics/rstudio/mousesR/code.R",
+    "project_path" : "code.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

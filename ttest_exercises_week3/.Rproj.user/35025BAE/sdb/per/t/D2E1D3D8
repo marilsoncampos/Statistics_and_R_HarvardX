@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1483785918150.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D2E1D3D8",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1483785918150,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "10186DE1",
+        "caption" : "babies",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=babies&cache_key=10186DE1",
+        "displayedObservations" : 1236,
+        "environment" : "",
+        "object" : "babies",
+        "preview" : 0,
+        "totalObservations" : 1236,
+        "variables" : 7
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
